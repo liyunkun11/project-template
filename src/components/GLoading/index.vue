@@ -77,7 +77,7 @@ defineProps({
   .loading-icon {
     margin-bottom: 8px;
 
-    .svg-icon {
+    .g-svg-icon {
       font-size: 30px;
       color: @primary-color;
       animation: rotation 1s linear infinite;

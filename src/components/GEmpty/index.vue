@@ -59,7 +59,7 @@ defineProps({
   }
   .empty-icon {
     margin-bottom: 8px;
-    .svg-icon {
+    .g-svg-icon {
       font-size: 120px;
     }
   }
