@@ -1,7 +1,26 @@
 <template>
-  <router-view />
+  <a-config-provider :locale="zhCN" :theme="themeStore.themeConfig">
+    <router-view />
+  </a-config-provider>
 </template>
+
+<script setup lang="ts">
+import zhCN from "ant-design-vue/es/locale/zh_CN";
+import dayjs from "dayjs";
+import "dayjs/locale/zh-cn";
+import { useThemeStore } from "@/store/theme";
+
+const themeStore = useThemeStore();
+dayjs.locale("zh-cn");
+</script>
+
 <style lang="less">
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 #app {
   width: 100%;
   height: 100%;
