@@ -1,5 +1,5 @@
 <template>
-  <svg class="svg-icon" aria-hidden="true">
+  <svg class="g-svg-icon" aria-hidden="true">
     <use :xlink:href="symbolId" />
   </svg>
 </template>
@@ -23,7 +23,7 @@ const symbolId = computed(() => `#${props.prefix}-${props.name}`);
 </script>
 
 <style lang="less" scoped>
-.svg-icon {
+.g-svg-icon {
   width: 1em;
   height: 1em;
   vertical-align: -0.15em;

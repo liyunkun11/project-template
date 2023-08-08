@@ -1,7 +1,7 @@
 <template>
-  <div :class="['loading', { 'loading-horizontal-center': horizontalCenter }, { 'loading-vertical-center': verticalCenter }]">
+  <div :class="['g-loading', { 'g-loading-horizontal-center': horizontalCenter }, { 'g-loading-vertical-center': verticalCenter }]">
     <div v-if="showIcon" class="loading-icon">
-      <svg-icon :name="iconName" :style="iconStyle" />
+      <g-svg-icon :name="iconName" :style="iconStyle" />
     </div>
     <slot name="desc">
       <p class="loading-desc" :style="descStyle">{{ desc }}</p>
@@ -61,14 +61,14 @@ defineProps({
   }
 }
 
-.loading {
+.g-loading {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
-  &.loading-horizontal-center {
+  &.g-loading-horizontal-center {
     text-align: center;
   }
-  &.loading-vertical-center {
+  &.g-loading-vertical-center {
     position: relative;
     top: 50%;
     transform: translateY(-50%);

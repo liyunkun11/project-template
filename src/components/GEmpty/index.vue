@@ -1,7 +1,7 @@
 <template>
-  <div :class="['empty', { 'empty-vertical-center': verticalCenter }]">
+  <div :class="['g-empty', { 'g-empty-vertical-center': verticalCenter }]">
     <div v-if="showIcon" class="empty-icon">
-      <svg-icon :name="iconName" :style="iconStyle" />
+      <g-svg-icon :name="iconName" :style="iconStyle" />
     </div>
     <slot name="desc">
       <p class="empty-desc" :style="descStyle">{{ desc }}</p>
@@ -47,12 +47,12 @@ defineProps({
 </script>
 
 <style lang="less" scoped>
-.empty {
+.g-empty {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
   text-align: center;
-  &.empty-vertical-center {
+  &.g-empty-vertical-center {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
