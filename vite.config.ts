@@ -5,7 +5,6 @@ import eslintPlugin from "vite-plugin-eslint";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import Components from "unplugin-vue-components/vite";
 import { AntDesignVueResolver } from "unplugin-vue-components/resolvers";
-import { createStyleImportPlugin, AndDesignVueResolve } from "vite-plugin-style-import";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -36,12 +35,9 @@ export default defineConfig({
     Components({
       resolvers: [
         AntDesignVueResolver({
-          importStyle: "less",
+          importStyle: false,
         }),
       ],
-    }),
-    createStyleImportPlugin({
-      resolves: [AndDesignVueResolve()],
     }),
   ],
   resolve: {
@@ -54,7 +50,6 @@ export default defineConfig({
       less: {
         modifyVars: {
           hack: `true; @import "@/styles/variable.less";`,
-          "@primary-color": "#02b96b",
         },
         javascriptEnabled: true,
       },
