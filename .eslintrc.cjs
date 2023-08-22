@@ -18,6 +18,7 @@ module.exports = {
     // typescript
     "@typescript-eslint/strict-boolean-expressions": "off",
     "@typescript-eslint/no-floating-promises": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
 
     // vue
     "vue/multi-word-component-names": [
