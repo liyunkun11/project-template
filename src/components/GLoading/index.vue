@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import type { PropType, CSSProperties } from "vue";
+import type { CSSProperties, PropType } from "vue";
 // 接收参数
 defineProps({
   // 水平居中

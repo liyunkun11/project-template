@@ -1,6 +1,7 @@
-import axios from "axios";
 import type { AxiosInstance } from "axios";
-import { isNeedCancel, cancelRequest, getRequestBody } from "./cancel";
+import axios from "axios";
+
+import { cancelRequest, getRequestBody, isNeedCancel } from "./cancel";
 import { errorHandler } from "./error";
 
 const isDev = import.meta.env.MODE === "development";

@@ -1,6 +1,8 @@
-import router from "./router";
-import NProgress from "nprogress";
 import "nprogress/nprogress.css";
+
+import NProgress from "nprogress";
+
+import router from "./router";
 NProgress.configure({ showSpinner: false });
 
 router.beforeEach((to) => {

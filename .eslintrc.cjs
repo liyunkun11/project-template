@@ -13,7 +13,7 @@ module.exports = {
     project: ["./tsconfig.json"],
     extraFileExtensions: [".vue"],
   },
-  plugins: ["vue"],
+  plugins: ["vue", "simple-import-sort"],
   rules: {
     // typescript
     "@typescript-eslint/strict-boolean-expressions": "off",
@@ -27,5 +27,9 @@ module.exports = {
         ignores: ["index"],
       },
     ],
+
+    // 导入排序
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
   },
 };

@@ -1,6 +1,6 @@
-import { defineStore } from "pinia";
 import { theme } from "ant-design-vue";
 import type { ThemeConfig } from "ant-design-vue/es/config-provider/context";
+import { defineStore } from "pinia";
 
 interface ThemeStore {
   // 主题色
