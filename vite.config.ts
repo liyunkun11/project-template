@@ -1,4 +1,5 @@
 import vue from "@vitejs/plugin-vue";
+import { CodeInspectorPlugin } from "code-inspector-plugin";
 import path from "path";
 import { AntDesignVueResolver } from "unplugin-vue-components/resolvers";
 import Components from "unplugin-vue-components/vite";
@@ -38,6 +39,9 @@ export default defineConfig({
           importStyle: false,
         }),
       ],
+    }),
+    CodeInspectorPlugin({
+      bundler: "vite",
     }),
   ],
   resolve: {

@@ -29,6 +29,7 @@
     "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@vitejs/plugin-vue": "^4.2.3",
+    "code-inspector-plugin": "^0.1.12",
     "eslint": "^8.46.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard-with-typescript": "^37.0.0",
