@@ -26,6 +26,22 @@ export const staticRoutes: RouteRecordRaw[] = [
       },
     ],
   },
+  {
+    path: "/demo",
+    name: "Demo",
+    component: Layout,
+    redirect: "/demo/echarts",
+    children: [
+      {
+        path: "/demo/echarts",
+        name: "DemoEcharts",
+        meta: {
+          title: "echarts示例",
+        },
+        component: async () => await import("@/views/demo/ECharts.vue"),
+      },
+    ],
+  },
 ];
 
 const router = createRouter({

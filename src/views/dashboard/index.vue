@@ -18,13 +18,18 @@
     <div class="section">
       <a-input></a-input>
     </div>
+    <hr />
+    <a-button type="primary" @click="handleRouterJump('echarts')">ECharts使用实例</a-button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { computed } from "vue";
+import { useRouter } from "vue-router";
 
 import { useThemeStore } from "@/store/theme";
+
+const router = useRouter();
 const themeStore = useThemeStore();
 // 主题模式
 const themeMode = computed(() => themeStore.isDark);
@@ -37,6 +42,15 @@ const handleChangeThemeColor = (e: Event): void => {
   const color = (e.target as HTMLInputElement).value;
   themeStore.colorPrimary = color;
   document.documentElement.style.setProperty("--colorPrimary", color);
+};
+
+// 路由跳转回调
+const handleRouterJump = (key: string) => {
+  switch (key) {
+    case "echarts":
+      router.push({ path: "/demo/echarts" });
+      break;
+  }
 };
 </script>
 
