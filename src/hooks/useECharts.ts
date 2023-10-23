@@ -36,17 +36,13 @@ export const useECharts = (el: Ref<HTMLDivElement> | HTMLDivElement, autoUpdateS
 
   // 更新大小
   const onResize = debounce(() => {
-    console.log("调用更新");
     echartsInstance?.resize();
   }, 100);
 
   // 监听元素大小变化
   const watchEl = () => {
     if (isEmptyEl()) return;
-    const resizeObserve = new ResizeObserver(() => {
-      console.log("执行监听");
-      onResize();
-    });
+    const resizeObserve = new ResizeObserver(onResize);
     resizeObserve.observe(unref(el));
   };
 
