@@ -29,7 +29,12 @@ module.exports = {
     ],
 
     // 导入排序
-    "simple-import-sort/imports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        groups: [["^vue", "^vue-router", "^\\w", "^"], ["^@/"], ["^\\.\\.(/.*)?$"], ["^\\./"], ["^@/types", ".*/types"]],
+      },
+    ],
     "simple-import-sort/exports": "error",
   },
 };

@@ -1,6 +1,6 @@
+import { onMounted, onUnmounted, type Ref, unref } from "vue";
 import * as echarts from "echarts";
 import { debounce } from "lodash-es";
-import { onMounted, onUnmounted, type Ref, unref } from "vue";
 
 export const useECharts = (el: Ref<HTMLDivElement> | HTMLDivElement, autoUpdateSize = true) => {
   // 实例对象

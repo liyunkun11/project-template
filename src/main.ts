@@ -1,9 +1,8 @@
+import { createApp } from "vue";
 import "normalize.css";
 import "virtual:svg-icons-register";
 import "./permission";
 import "./styles/index.less";
-
-import { createApp } from "vue";
 
 import App from "./App.vue";
 import directive from "./directives";

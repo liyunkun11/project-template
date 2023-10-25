@@ -1,6 +1,5 @@
-import "nprogress/nprogress.css";
-
 import NProgress from "nprogress";
+import "nprogress/nprogress.css";
 
 import router from "./router";
 NProgress.configure({ showSpinner: false });
