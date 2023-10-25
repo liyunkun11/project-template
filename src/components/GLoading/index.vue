@@ -1,10 +1,10 @@
 <template>
-  <div :class="['g-loading', { 'g-loading-horizontal-center': horizontalCenter }, { 'g-loading-vertical-center': verticalCenter }]">
-    <div v-if="showIcon" class="loading-icon">
+  <div :class="['g-loading', { 'g-loading--horizontal-center': horizontalCenter }, { 'g-loading--vertical-center': verticalCenter }]">
+    <div v-if="showIcon" class="g-loading__icon">
       <g-svg-icon :name="iconName" :style="iconStyle" />
     </div>
     <slot name="desc">
-      <p class="loading-desc" :style="descStyle">{{ desc }}</p>
+      <p class="g-loading__desc" :style="descStyle">{{ desc }}</p>
     </slot>
   </div>
 </template>
@@ -70,16 +70,16 @@ const themeStore = useThemeStore();
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
-  &.g-loading-horizontal-center {
+  &.g-loading--horizontal-center {
     text-align: center;
   }
-  &.g-loading-vertical-center {
+  &.g-loading--vertical-center {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
   }
 
-  .loading-icon {
+  .g-loading__icon {
     margin-bottom: 8px;
 
     .g-svg-icon {
@@ -89,7 +89,7 @@ const themeStore = useThemeStore();
     }
   }
 
-  .loading-desc {
+  .g-loading__desc {
     color: #656566;
     font-size: 12px;
     margin: 0px;

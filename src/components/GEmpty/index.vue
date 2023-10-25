@@ -1,10 +1,10 @@
 <template>
-  <div :class="['g-empty', { 'g-empty-vertical-center': verticalCenter }]">
-    <div v-if="showIcon" class="empty-icon">
+  <div :class="['g-empty', { 'g-empty--vertical-center': verticalCenter }]">
+    <div v-if="showIcon" class="g-empty__icon">
       <g-svg-icon :name="iconName" :style="iconStyle" />
     </div>
     <slot name="desc">
-      <p class="empty-desc" :style="descStyle">{{ desc }}</p>
+      <p class="g-empty__desc" :style="descStyle">{{ desc }}</p>
     </slot>
   </div>
 </template>
@@ -52,18 +52,18 @@ defineProps({
   padding: 8px;
   box-sizing: border-box;
   text-align: center;
-  &.g-empty-vertical-center {
+  &.g-empty--vertical-center {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
   }
-  .empty-icon {
+  .g-empty__icon {
     margin-bottom: 8px;
     .g-svg-icon {
       font-size: 120px;
     }
   }
-  .empty-desc {
+  .g-empty__desc {
     color: #656566;
     font-size: 12px;
     margin: 0px;
