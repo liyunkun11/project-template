@@ -18,6 +18,7 @@
 
 # ⛵ 规范
 
-项目使用 [ESLint](https://zh-hans.eslint.org/) + [Prettier](https://www.prettier.cn/docs/options.html) 的形式去做代码规范，并使用了`standard`标准  
-后续有打算加入 [commitizen](https://github.com/commitizen/cz-cli) + [cz-conventional-changelog](https://github.com/commitizen/cz-conventional-changelog) + [commitlint](https://github.com/conventional-changelog/commitlint) 来限制提交信息的规范  
-并且有打算使用 [husky](https://github.com/typicode/husky) + [lint-staged](https://github.com/okonet/lint-staged) 做提交时的拦截和自动修复
+- 使用 [ESLint](https://zh-hans.eslint.org/) + [Prettier](https://www.prettier.cn/docs/options.html) 的形式去做代码规范，并使用了`standard`标准  
+- 使用 [husky](https://github.com/typicode/husky) + [lint-staged](https://github.com/okonet/lint-staged) 做提交时的拦截和自动修复  
+- 使用 [commitlint](https://github.com/conventional-changelog/commitlint) 来限制提交信息的规范  
+
