@@ -64,7 +64,6 @@ defineProps({
     }
   }
   .g-empty__desc {
-    color: #656566;
     font-size: 12px;
     margin: 0px;
   }

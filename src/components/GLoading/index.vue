@@ -11,9 +11,6 @@
 
 <script setup lang="ts">
 import type { CSSProperties, PropType } from "vue";
-
-import { useThemeStore } from "@/store/theme";
-
 // 接收参数
 defineProps({
   // 水平居中
@@ -52,8 +49,6 @@ defineProps({
     default: () => ({}),
   },
 });
-
-const themeStore = useThemeStore();
 </script>
 
 <style lang="less" scoped>
@@ -84,13 +79,12 @@ const themeStore = useThemeStore();
 
     .g-svg-icon {
       font-size: 30px;
-      color: v-bind("themeStore.colorPrimary");
+      color: @colorPrimary;
       animation: rotation 1s linear infinite;
     }
   }
 
   .g-loading__desc {
-    color: #656566;
     font-size: 12px;
     margin: 0px;
   }
