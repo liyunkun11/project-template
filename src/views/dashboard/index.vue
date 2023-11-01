@@ -34,14 +34,13 @@ const themeStore = useThemeStore();
 // 主题模式
 const themeMode = computed(() => themeStore.isDark);
 // 切换主题模式
-const toggleThemeMode = (): void => {
+const toggleThemeMode = () => {
   themeStore.isDark = !themeStore.isDark;
 };
 // 主题色改变回调
-const handleChangeThemeColor = (e: Event): void => {
+const handleChangeThemeColor = (e: Event) => {
   const color = (e.target as HTMLInputElement).value;
   themeStore.colorPrimary = color;
-  document.documentElement.style.setProperty("--colorPrimary", color);
 };
 
 // 路由跳转回调
@@ -58,14 +57,14 @@ const handleRouterJump = (key: string) => {
 .dashboard {
   width: 100%;
   height: 100%;
-  padding: @globalPadding;
+  padding: 8px;
   box-sizing: border-box;
   .section {
     display: flex;
     align-items: center;
-    margin-bottom: @globalMargin;
+    margin-bottom: 8px;
     .section-item {
-      margin-right: @globalMargin;
+      margin-right: 8px;
       .color-primary {
         color: @colorPrimary;
       }
