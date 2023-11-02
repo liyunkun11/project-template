@@ -26,8 +26,8 @@ export default defineConfig({
     vue(),
     eslintPlugin({
       cache: false,
-      include: ["src/**/*.js, src/**/*.ts, src/**/*.vue"],
-      exclude: ["./node_modules/**"],
+      include: ["src/**/*.cjs", "src/**/*.ts", "src/**/*.vue"],
+      exclude: ["node_modules/**"],
     }),
     createSvgIconsPlugin({
       iconDirs: [path.resolve(__dirname, "./src/icons")],
