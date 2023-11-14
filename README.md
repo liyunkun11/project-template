@@ -19,6 +19,7 @@
 # ⛵ 规范
 
 - 使用 [ESLint](https://zh-hans.eslint.org/) + [Prettier](https://www.prettier.cn/docs/options.html) 的形式去做代码规范，并使用了`standard`标准  
-- 使用 [husky](https://github.com/typicode/husky) + [lint-staged](https://github.com/okonet/lint-staged) 做提交时的拦截和自动修复  
+- 使用 [husky](https://github.com/typicode/husky) + [lint-staged](https://github.com/okonet/lint-staged) 做提交时的拦截和自动修复
+  - ⚠️`mac`用户注意`.husky`文件夹下的执行权限 可使用`ls -a .husky`查看
 - 使用 [commitlint](https://github.com/conventional-changelog/commitlint) 来限制提交信息的规范  
 
