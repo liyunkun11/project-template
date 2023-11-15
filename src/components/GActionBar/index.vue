@@ -109,7 +109,7 @@ const internalItems = computed(() => filteredItems.slice(props.max - 1));
 
 // 点击回调
 const handleClick = (item: ActionBarItem) => {
-  if (item.disabled) return;
+  if (item._disabled) return;
   if (dropdownOpen.value) dropdownOpen.value = false;
   if (item.click) item.click(props.data);
   emit("click", item.id, props.data);
