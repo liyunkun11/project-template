@@ -1,52 +1,21 @@
 import type { RouteRecordRaw } from "vue-router";
 import { createRouter, createWebHashHistory } from "vue-router";
 
-import Layout from "@/layout/index.vue";
+import single from "./single";
 
-// 静态路由
-export const staticRoutes: RouteRecordRaw[] = [
+export const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "Root",
     redirect: "/dashboard",
+    meta: { hidden: true },
   },
-  {
-    path: "/dashboard",
-    name: "Dashboard",
-    component: Layout,
-    redirect: "/dashboard/index",
-    children: [
-      {
-        path: "/dashboard/index",
-        name: "DashboardIndex",
-        meta: {
-          title: "首页",
-        },
-        component: async () => await import("@/views/dashboard/index.vue"),
-      },
-    ],
-  },
-  {
-    path: "/demo",
-    name: "Demo",
-    component: Layout,
-    redirect: "/demo/echarts",
-    children: [
-      {
-        path: "/demo/echarts",
-        name: "DemoEcharts",
-        meta: {
-          title: "echarts示例",
-        },
-        component: async () => await import("@/views/demo/ECharts.vue"),
-      },
-    ],
-  },
+  ...single,
 ];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes: staticRoutes,
+  routes,
 });
 
 export default router;

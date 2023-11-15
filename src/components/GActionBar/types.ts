@@ -20,6 +20,7 @@ export interface ActionBarProps {
   list: ActionBarItem[];
   max?: number;
   data?: Record<string, any>;
+  permission?: boolean;
   tooltipPlacement?: TooltipProps["placement"];
   confirmPlacement?: PopconfirmProps["placement"];
 }

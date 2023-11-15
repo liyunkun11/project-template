@@ -53,12 +53,15 @@ import { computed, ref } from "vue";
 import { cloneDeep } from "lodash-es";
 import { UpOutlined } from "@ant-design/icons-vue";
 
+import { hasPermission } from "@/utils/permission";
+
 import type { ActionBarEmits, ActionBarItem, ActionBarProps } from "./types";
 
 // 接收参数
 const props = withDefaults(defineProps<ActionBarProps>(), {
   max: 3,
   data: () => ({}),
+  permission: true,
   tooltipPlacement: "top",
   confirmPlacement: "top",
 });
@@ -72,6 +75,10 @@ const dropdownOpen = ref(false);
 const filterItems = (items: ActionBarItem[]): ActionBarItem[] => {
   const _items = cloneDeep(items);
   let result: ActionBarItem[] = _items;
+  // 处理权限
+  if (props.permission) {
+    result = result.filter((f) => hasPermission(f.id));
+  }
   // 根据条件判断元素是否渲染
   result = result.filter((item) => {
     if (typeof item.condition === "function") {

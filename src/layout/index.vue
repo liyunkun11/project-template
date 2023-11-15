@@ -1,55 +1,103 @@
 <template>
   <div class="app-layout">
-    <router-view />
+    <!-- 菜单 -->
+    <div class="layout-menu">
+      <a-menu v-model:openKeys="menuState.openKeys" v-model:selectedKeys="menuState.selectedKeys" theme="dark" mode="inline" @click="handleMenuClick">
+        <template v-for="menu in menuState.menus" :key="menu.path">
+          <!-- 隐藏的路由 -->
+          <template v-if="menu.meta?.hidden" />
+          <!-- 单路由 -->
+          <template v-else-if="menu.children?.length === 1">
+            <a-menu-item :key="menu.path">
+              {{ menu.meta?.title }}
+            </a-menu-item>
+          </template>
+          <!-- 有子路由 -->
+          <template v-else>
+            <a-sub-menu :key="menu.path" :title="menu.meta.title">
+              <a-menu-item v-for="subMenu in menu.children" :key="subMenu.path">
+                {{ subMenu.meta?.title }}
+              </a-menu-item>
+            </a-sub-menu>
+          </template>
+        </template>
+      </a-menu>
+    </div>
+    <!-- 视图 -->
+    <div class="layout-view">
+      <div class="layout-view__container">
+        <router-view />
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { theme } from "ant-design-vue";
+import { reactive } from "vue";
+import { useRouter } from "vue-router";
+import type { MenuClickEventHandler } from "ant-design-vue/lib/menu/src/interface";
 
-import { useThemeStore } from "@/store/theme";
+const router = useRouter();
+const routes = router.options.routes;
 
-const { token } = theme.useToken();
-const themeStore = useThemeStore();
+// 菜单状态
+interface MenuState {
+  menus: any;
+  openKeys: string[];
+  selectedKeys: string[];
+}
+const menuState = reactive<MenuState>({
+  menus: routes,
+  openKeys: [],
+  selectedKeys: [],
+});
 
-// 给token对象的需要的属性添加前缀并转为css属性
-const addPrefixToCss = (obj: Record<string, any>) => {
-  let cssStr = "";
-  for (const key in obj) {
-    // 只添加需要的属性
-    const includeReg = /^(color|border).*/;
-    if (!includeReg.test(key)) continue;
-    if (Object.hasOwnProperty.call(obj, key)) {
-      const newKey = `--${key}`;
-      const value = obj[key] as string;
-      cssStr += `${newKey}: ${value};`;
-    }
+// 菜单点击回调
+const handleMenuClick: MenuClickEventHandler = (menuInfo) => {
+  const key = menuInfo.keyPath?.[0];
+  const menuKey = menuInfo.key as string;
+  const isUrl = menuKey.match(/^https?/);
+  if (typeof key === "string") {
+    menuState.openKeys = [key];
   }
-  return cssStr;
+  if (isUrl) {
+    window.open(menuKey);
+  } else {
+    router.push(menuKey);
+  }
 };
-
-// 添加css属性到:root
-const addCssToRoot = () => {
-  setTimeout(() => {
-    const cssStr = addPrefixToCss(token.value);
-    let style = document.querySelector("style#ant-design-vue-token") as HTMLStyleElement;
-    if (!style) {
-      style = document.createElement("style");
-      style.id = "ant-design-vue-token";
-      document.getElementsByTagName("head")[0].append(style);
-    }
-    style.innerText = `:root{${cssStr}}`;
-  });
-};
-addCssToRoot();
-themeStore.$subscribe(addCssToRoot, { detached: true });
 </script>
 
 <style lang="less" scoped>
 .app-layout {
   width: 100%;
   height: 100%;
-  color: @colorText;
-  background-color: @colorBgLayout;
+  display: flex;
+
+  .layout-menu {
+    flex: none;
+    width: 180px;
+    position: relative;
+
+    .ant-menu {
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+
+  .layout-view {
+    flex: 1;
+    padding: 16px;
+    box-sizing: border-box;
+    min-width: 0px;
+    overflow: auto;
+    .layout-view__container {
+      width: 100%;
+      min-height: 100%;
+      border-radius: @containerBorderRadius;
+      background-color: @containerBgColor;
+      overflow: hidden;
+    }
+  }
 }
 </style>

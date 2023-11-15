@@ -1,5 +1,5 @@
 <template>
-  <a-config-provider :locale="zhCN" :theme="themeStore.themeConfig">
+  <a-config-provider :locale="zhCN" :theme="antDesignVueTheme" :auto-insert-space-in-button="false">
     <router-view />
   </a-config-provider>
 </template>
@@ -9,9 +9,10 @@ import zhCN from "ant-design-vue/es/locale/zh_CN";
 import dayjs from "dayjs";
 import "dayjs/locale/zh-cn";
 
-import { useThemeStore } from "@/store/theme";
+import { useTheme } from "@/hooks/useTheme";
 
-const themeStore = useThemeStore();
+const { antDesignVueTheme } = useTheme();
+
 dayjs.locale("zh-cn");
 </script>
 
@@ -20,12 +21,17 @@ html,
 body {
   width: 100%;
   height: 100%;
+  background-color: @layoutBgColor;
 }
-
 #app {
   width: 100%;
   height: 100%;
   min-width: 1280px;
-  font-family: "PingFangSC-Regular", "PingFang SC";
+  color: @colorText;
+  font-size: @fontSize;
+  font-family: @fontFamily;
+}
+#nprogress .bar {
+  background-color: @colorPrimary !important;
 }
 </style>

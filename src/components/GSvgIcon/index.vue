@@ -5,7 +5,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { ref, watchEffect } from "vue";
+import { isEmpty } from "lodash-es";
+
+import { useThemeStore } from "@/stores/theme";
 
 // 接收参数
 const props = defineProps({
@@ -17,9 +20,24 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  lightName: {
+    type: String,
+    default: "",
+  },
 });
+
+const themeStore = useThemeStore();
 // ID
-const symbolId = computed(() => `#${props.prefix}-${props.name}`);
+const symbolId = ref("");
+
+watchEffect(() => {
+  if (themeStore.themeMode === "light") {
+    const lightName = isEmpty(props.lightName) ? props.name : props.lightName;
+    symbolId.value = `#${props.prefix}-${lightName}`;
+  } else {
+    symbolId.value = `#${props.prefix}-${props.name}`;
+  }
+});
 </script>
 
 <style lang="less" scoped>
