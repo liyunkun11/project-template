@@ -7,7 +7,7 @@ export const routes: RouteRecordRaw[] = [
   {
     path: "/",
     name: "Root",
-    redirect: "/dashboard",
+    redirect: "/comp-preview",
     meta: { hidden: true },
   },
   ...single,
