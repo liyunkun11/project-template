@@ -64,6 +64,7 @@ export const cssVariableLight: Record<string, string> = {
   "--vxe-table-column-padding-default": "8px", // 表格列默认内边距
   "--vxe-table-cell-padding-left": "8px", // 表格单元格左边距
   "--vxe-table-cell-padding-right": "8px", // 表格单元格右边距
+  "--vxe-loading-background-color": "#F5F5F5", // 表格loading背景色
 };
 
 // ant-design-vue变量
