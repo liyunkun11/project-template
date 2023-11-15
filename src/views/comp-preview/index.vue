@@ -69,6 +69,8 @@
       </a-form-item>
     </a-form>
     <div class="table-demo">
+      <span>开启表格加载</span>
+      <a-switch v-model:checked="tableOptions.loading"></a-switch>
       <g-table v-bind="tableOptions"></g-table>
       <g-pagination v-model:current="paginationOptions.current" v-model:page-size="paginationOptions.pagiSize" :total="paginationOptions.total"></g-pagination>
     </div>
@@ -125,7 +127,8 @@ const formState = reactive({
   picker: ["1698831421916", "1701337025916"] as [string, string],
 });
 
-const tableOptions = {
+const tableOptions = reactive({
+  loading: true,
   data: [
     { label: 1, value: 1 },
     { label: 2, value: 2 },
@@ -134,7 +137,7 @@ const tableOptions = {
     { title: "标题", field: "label" },
     { title: "值", field: "value" },
   ],
-};
+});
 
 const paginationOptions = reactive({
   current: 1,
