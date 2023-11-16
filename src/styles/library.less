@@ -1,5 +1,4 @@
-// 此文件用于重写组件库的组件样式
-// 注意要使用附加类名的形式修改 不要直接使用原有类名
+// 此文件用于重写组件库的组件默认样式
 
 // 按钮
 .ant-btn {
@@ -30,5 +29,12 @@
   &.ant-alert-warning {
     color: @colorWarning;
     background-color: rgba(@colorWarningRgb, 0.2);
+  }
+}
+
+// 表单
+.ant-form {
+  .ant-form-item {
+    margin-bottom: 12px;
   }
 }
