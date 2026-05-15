@@ -1,0 +1,48 @@
+{
+  "code": 20000,
+  "message": "success",
+  "data": [
+    {
+      "type": 1,
+      "path": "/dashboard",
+      "title": "首页",
+      "children": [
+        {
+          "id": 2,
+          "type": 1,
+          "path": "/dashboard/index",
+          "title": "首页"
+        }
+      ]
+    },
+    {
+      "type": 1,
+      "path": "/page",
+      "title": "嵌套页面",
+      "children": [
+        {
+          "type": 1,
+          "path": "/page/page1",
+          "title": "page1",
+          "children": [
+            {
+              "type": 1,
+              "path": "/page/page1/page1-1",
+              "title": "page1-1"
+            }
+          ]
+        },
+        {
+          "type": 1,
+          "path": "/page/page2",
+          "title": "page2"
+        },
+        {
+          "type": 1,
+          "path": "/page/page3",
+          "title": "page3"
+        }
+      ]
+    }
+  ]
+}

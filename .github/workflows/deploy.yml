@@ -1,0 +1,51 @@
+name: deploy
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+jobs:
+  first_job:
+    name: build-and-deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Clean npm cache
+        run: npm cache clean --force
+
+      - name: Install with retry
+        run: |
+          for i in {1..3}; do
+            echo "尝试 $i: 安装依赖..."
+            if npm ci --no-audit --no-fund; then
+              echo "安装依赖成功!"
+              exit 0
+            else
+              echo "尝试 $i 失败, 5秒后重试..."
+              sleep 5
+            fi
+          done
+          echo "所有 3 次尝试都失败了, 退出并标记为失败."
+          exit 1
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./dist
+          branch: gh-pages
+          clean: true
