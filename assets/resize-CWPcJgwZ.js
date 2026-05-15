@@ -1,0 +1,1 @@
+var e={mounted(e,t){let n=e.clientWidth,r=e.clientHeight;e._observer=new ResizeObserver(()=>{(e.clientWidth!==n||e.clientHeight!==r)&&(n=e.clientWidth,r=e.clientHeight,t.value(n,r))}),e._observer.observe(e)},unmounted(e){e._observer?.disconnect()}};export{e as default};

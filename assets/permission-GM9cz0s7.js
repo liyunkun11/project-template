@@ -1,0 +1,1 @@
+import{n as e}from"./index-B5Mx6TNa.js";var t={mounted(t,n){let r=n.value;e(r)||t.parentElement?.removeChild(t)}};export{t as default};
