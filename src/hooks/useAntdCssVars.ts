@@ -18,7 +18,7 @@ export const useAntdCssVars = () => {
     setCssVar(`${CSS_KEY_PREFIX}-color-bg-overlay`, t.colorBgElevated);
     setCssVar(`${CSS_KEY_PREFIX}-color-border`, t.colorBorder);
     setCssVar(`${CSS_KEY_PREFIX}-color-divider`, t.colorSplit);
-    setCssVar(`${CSS_KEY_PREFIX}-radius`, t.borderRadius);
-    setCssVar(`${CSS_KEY_PREFIX}-shadow`, t.boxShadow);
+    setCssVar(`${CSS_KEY_PREFIX}-border-radius`, `${t.borderRadius}px`);
+    setCssVar(`${CSS_KEY_PREFIX}-box-shadow`, t.boxShadow);
   });
 };
