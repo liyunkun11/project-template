@@ -1,0 +1,1 @@
+import{Y as e,it as t,q as n,s as r}from"./index-zbF1mIFg.js";var i={},a={class:`page1-1`};function o(r,i){return t(),e(`div`,a,[...i[0]||=[n(`h1`,null,`页面1-1`,-1)]])}var s=r(i,[[`render`,o],[`__file`,`/home/runner/work/project-template/project-template/src/views/page1-1/index.vue`]]);export{s as default};
