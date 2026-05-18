@@ -14,6 +14,7 @@ import "dayjs/locale/zh-cn";
 dayjs.locale("zh-cn");
 
 const themeStore = useThemeStore();
+themeStore.setThemeMode(themeStore.themeMode);
 themeStore.applyThemeColors();
 </script>
 
