@@ -1,8 +1,11 @@
 import type { RouteRecordRaw } from "vue-router";
 import { createRouter, createWebHashHistory } from "vue-router";
 
+import constRoutes from "./modules/const";
 import dashboard from "./modules/dashboard";
 import page from "./modules/page";
+
+export { constRoutes };
 
 export const staticRoutes: RouteRecordRaw[] = [
   {
