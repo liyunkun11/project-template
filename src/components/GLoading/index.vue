@@ -13,49 +13,18 @@
 </template>
 
 <script setup lang="ts">
-import type { CSSProperties, PropType } from "vue";
+import type { GLoadingProps } from "./types";
+
 // 接收参数
-defineProps({
-  // 水平居中
-  horizontalCenter: {
-    type: Boolean,
-    default: true,
-  },
-  // 垂直居中
-  verticalCenter: {
-    type: Boolean,
-    default: false,
-  },
-  // 描述文本
-  desc: {
-    type: String,
-    default: "数据加载中...",
-  },
-  // 描述文本样式
-  descStyle: {
-    type: Object as PropType<CSSProperties>,
-    default: () => ({}),
-  },
-  // 是否显示icon
-  showIcon: {
-    type: Boolean,
-    default: true,
-  },
-  // icon名称
-  iconName: {
-    type: String,
-    default: "",
-  },
-  // icon样式
-  iconStyle: {
-    type: Object as PropType<CSSProperties>,
-    default: () => ({}),
-  },
-  // spin大小
-  spinSize: {
-    type: String,
-    default: "default",
-  },
+withDefaults(defineProps<GLoadingProps>(), {
+  horizontalCenter: true,
+  verticalCenter: false,
+  desc: "数据加载中...",
+  descStyle: () => ({}),
+  showIcon: true,
+  iconName: "",
+  iconStyle: () => ({}),
+  spinSize: "default",
 });
 </script>
 
