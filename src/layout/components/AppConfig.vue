@@ -72,7 +72,7 @@
     </a-form>
   </a-drawer>
   <div class="settings-icon" @click="visible = true">
-    <svg-icon name="simple/settings-outlined" />
+    <svg-icon name="simple/settings" />
   </div>
 </template>
 

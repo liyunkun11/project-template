@@ -10,7 +10,7 @@ const routes: RouteRecordRaw[] = [
       {
         path: "/dashboard/index",
         name: "Dashboard",
-        meta: { title: "首页", icon: "simple/home-filled" },
+        meta: { title: "首页", icon: "simple/home" },
         component: async () => await import("@/views/dashboard/index.vue"),
       },
     ],

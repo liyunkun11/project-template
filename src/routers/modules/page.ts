@@ -6,7 +6,7 @@ const routes: RouteRecordRaw[] = [
     path: "/page",
     component: Layout,
     redirect: "/page/page1",
-    meta: { title: "嵌套页面", icon: "simple/nest-outlined" },
+    meta: { title: "嵌套页面", icon: "simple/nest" },
     children: [
       {
         path: "/page/page1",

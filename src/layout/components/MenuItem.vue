@@ -50,7 +50,7 @@ withDefaults(defineProps<{
 
 // 获取菜单图标
 const getMenuIcon = (menu: RouteRecordRaw) => {
-  return menu.meta?.icon as string || "simple/page-outlined";
+  return menu.meta?.icon as string || "simple/page";
 };
 // 获取菜单标题
 const getMenuTitle = (menu: RouteRecordRaw) => {

@@ -2,7 +2,7 @@
   <div class="top-header">
     <div class="top-header-left">
       <div class="menu-toggle-fold" @click="toggleMenuCollapsed">
-        <svg-icon :name="menuCollapsed ? 'simple/menu-unfold-outlined' : 'simple/menu-fold-outlined'" />
+        <svg-icon :name="menuCollapsed ? 'simple/menu-unfold' : 'simple/menu-fold'" />
       </div>
       <div class="breadcrumb-container">
         <a-breadcrumb separator="/">
@@ -21,7 +21,7 @@
       <AppConfig />
       <a-dropdown :trigger="['click']">
         <div class="user-info">
-          <svg-icon name="simple/user-filled" />
+          <svg-icon name="simple/user" />
           <span class="username">管理员</span>
         </div>
         <template #overlay>
@@ -63,7 +63,7 @@ const breadcrumbs = computed(() => {
 
 // 获取菜单图标
 const getMenuIcon = (menu: { path: string, meta: Record<string, any> }) => {
-  return menu.meta?.icon as string || "simple/page-outlined";
+  return menu.meta?.icon as string || "simple/page";
 };
 // 获取菜单标题
 const getMenuTitle = (menu: { path: string, meta: Record<string, any> }) => {
