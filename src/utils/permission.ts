@@ -1,6 +1,6 @@
 import { notification } from "ant-design-vue";
 import routeRes from "@/routeRes.json";
-import router, { asyncRoutes } from "@/routers";
+import router, { asyncRoutes, constRoutes } from "@/routers";
 import { usePermissionStore } from "@/stores/permission";
 
 // 处理用户权限资源 把Tree结构转为扁平得Map结构
@@ -138,6 +138,23 @@ const getPermissionRes = async () => {
   const routeMap = treeToFlatMap(realRoutes);
   // 生成左侧菜单树
   const menuRoutes = generateMenuTree(res.data, [], routeMap);
+
+  // 开发环境下注入 constRoutes 到路由和菜单
+  if (import.meta.env.DEV) {
+    for (const route of constRoutes) {
+      router.addRoute(route);
+    }
+    // 把 constRoutes 中的子路由作为菜单项追加到菜单末尾
+    for (const route of constRoutes) {
+      const children = route.children ?? [];
+      for (const child of children) {
+        if (!child.meta?.hidden) {
+          menuRoutes.unshift({ ...child });
+          permissionStore.routeMap[child.path] = child;
+        }
+      }
+    }
+  }
   // 更新存储仓库
   permissionStore.$patch({
     menuRoutes,
