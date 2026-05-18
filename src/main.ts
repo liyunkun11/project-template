@@ -5,6 +5,7 @@ import router from "./routers";
 import pinia from "./stores";
 
 import "./permission";
+import "./styles/index.less";
 import "normalize.css";
 import "virtual:svg-icons-register";
 
