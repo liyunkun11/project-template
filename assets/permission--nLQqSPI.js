@@ -1,1 +1,0 @@
-import{n as e}from"./index-DCUB3vj7.js";var t={mounted(t,n){let r=n.value;e(r)||t.parentElement?.removeChild(t)}};export{t as default};

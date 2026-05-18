@@ -1,0 +1,1 @@
+import{J as e,Z as t,ot as n,s as r}from"./index-BpaEe5tO.js";var i={},a={class:`page2`};function o(r,i){return n(),t(`div`,a,[...i[0]||=[e(`h1`,null,`页面2`,-1)]])}var s=r(i,[[`render`,o],[`__file`,`/home/runner/work/project-template/project-template/src/views/page2/index.vue`]]);export{s as default};
